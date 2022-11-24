@@ -1,0 +1,15 @@
+node_modules
+.env
+.eslintcache
+/build
+/public/build
+*.log
+.cache
+.vercel
+.output
+/build/
+/api/*
+/coverage
+.jest/
+.DS_Store
+tailwind.css
