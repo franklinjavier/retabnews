@@ -36,7 +36,10 @@ export function Posts({ posts }: PostsProps) {
               <span>{item.tabcoins} tabcoins</span>
               {' · '}
               <span>{item.children_deep_count} comentários</span> {' · '}
-              <Link to={`/${item.owner_username}`}>{item.owner_username}</Link> {' · '}
+              <Link prefetch="intent" to={`/${item.owner_username}`}>
+                {item.owner_username}
+              </Link>{' '}
+              {' · '}
               <span title={formatDate(new Date(item.created_at))}>
                 {relativeTimeFromDates(new Date(item.created_at))}
               </span>
