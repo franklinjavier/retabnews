@@ -1,6 +1,7 @@
 import { NavLink, useTransition } from '@remix-run/react'
 
 import { Container } from '~/components/container'
+import { ThemeToggle } from '~/components/theme'
 
 type HeaderProps = {}
 
@@ -37,9 +38,9 @@ export function Header(props: HeaderProps) {
   const transition = useTransition()
   const isLoading = transition.state !== 'idle'
   return (
-    <header className="bg-gray-800 dark:bg-gray-900">
-      <Container>
-        <nav className="flex h-16 items-center gap-2 text-gray-100">
+    <header className="bg-gray-800 dark:bg-[#1b1b1b]">
+      <Container className="flex items-center">
+        <nav className="flex h-16 items-center gap-2 text-zinc-100">
           {[
             { url: '.', text: 'Relevantes' },
             { url: 'recentes', text: 'Recentes' },
@@ -50,6 +51,7 @@ export function Header(props: HeaderProps) {
           ))}
           {isLoading && <Loading />}
         </nav>
+        <ThemeToggle />
       </Container>
     </header>
   )

@@ -25,7 +25,7 @@ export default function Index() {
   const posts = useLoaderData<typeof loader>()
 
   return (
-    <main className="m-5">
+    <main className="my-5">
       <Posts posts={posts} />
     </main>
   )

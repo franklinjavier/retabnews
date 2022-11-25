@@ -1,6 +1,9 @@
+import clsx from 'clsx'
+
 type HeadingProps = {
   children: React.ReactNode
+  className?: string
 }
-export function Container(props: HeadingProps) {
-  return <div className="m-auto w-full max-w-5xl" {...props} />
+export function Container({ className, ...props }: HeadingProps) {
+  return <div className={clsx('m-auto w-full max-w-5xl px-6 md:px-0', className)} {...props} />
 }

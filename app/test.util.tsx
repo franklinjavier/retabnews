@@ -3,12 +3,14 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
+import { Theme, ThemeProvider } from './utils/theme-provider'
+
 import type { RenderOptions } from '@testing-library/react'
 import type { ReactElement } from 'react'
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => (
   <BrowserRouter>
-    <>{children}</>
+    <ThemeProvider specifiedTheme={Theme.DARK}>{children}</ThemeProvider>
   </BrowserRouter>
 )
 

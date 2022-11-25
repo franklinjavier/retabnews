@@ -31,19 +31,17 @@ export function Posts({ posts }: PostsProps) {
           <Link className="font-medium" to={`/${item.owner_username}/${item.slug}`}>
             {item.title}
           </Link>
-          <div className="ml-5 text-xs text-gray-500">
-            <>
-              <span>{item.tabcoins} tabcoins</span>
-              {' · '}
-              <span>{item.children_deep_count} comentários</span> {' · '}
-              <Link prefetch="intent" to={`/${item.owner_username}`}>
-                {item.owner_username}
-              </Link>{' '}
-              {' · '}
-              <span title={formatDate(new Date(item.created_at))}>
-                {relativeTimeFromDates(new Date(item.created_at))}
-              </span>
-            </>
+          <div className="ml-5 text-xs text-zinc-500">
+            <span>{item.tabcoins} tabcoins</span>
+            {' · '}
+            <span>{item.children_deep_count} comentários</span> {' · '}
+            <Link prefetch="intent" to={`/${item.owner_username}`}>
+              {item.owner_username}
+            </Link>{' '}
+            {' · '}
+            <span title={formatDate(new Date(item.created_at))}>
+              {relativeTimeFromDates(new Date(item.created_at))}
+            </span>
           </div>
         </li>
       ))}
