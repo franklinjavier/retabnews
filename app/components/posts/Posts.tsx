@@ -40,13 +40,9 @@ export function Posts({ posts }: PostsProps) {
               {item.owner_username}
             </Link>{' '}
             {' · '}
-            <ClientOnly fallback={<>{item.published_at}</>}>
-              {() => (
-                <span title={formatDate(new Date(item.created_at))}>
-                  {relativeTimeFromDates(new Date(item.created_at))}
-                </span>
-              )}
-            </ClientOnly>
+            <span title={formatDate(new Date(item.created_at))}>
+              {relativeTimeFromDates(new Date(item.created_at))}
+            </span>
           </div>
         </li>
       ))}
