@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react'
 
+import { ClientOnly } from '../client-only'
 import { formatDate, relativeTimeFromDates } from '~/utils/date'
 
 export type Post = {
@@ -39,9 +40,13 @@ export function Posts({ posts }: PostsProps) {
               {item.owner_username}
             </Link>{' '}
             {' · '}
-            <span title={formatDate(new Date(item.created_at))}>
-              {relativeTimeFromDates(new Date(item.created_at))}
-            </span>
+            <ClientOnly fallback={<>{item.created_at}</>}>
+              {() => (
+                <span title={formatDate(new Date(item.created_at))}>
+                  {relativeTimeFromDates(new Date(item.created_at))}
+                </span>
+              )}
+            </ClientOnly>
           </div>
         </li>
       ))}
