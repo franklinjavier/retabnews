@@ -1,10 +1,9 @@
-import { render, screen } from '@testing-library/react'
+import { Header } from './Header'
+import { renderWithRouter, screen } from '~/test.util'
 
-import { Container } from './Header'
-
-describe('<Container />', () => {
-  it('should render Container component', () => {
-    render(<Container>xxx</Container>)
-    expect(screen.getByText('xxx')).toBeInTheDocument()
+describe('<Header />', () => {
+  it('should render Header component', () => {
+    renderWithRouter(<Header />)
+    expect(screen.getByText('Recentes')).toBeInTheDocument()
   })
 })

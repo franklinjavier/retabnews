@@ -2,10 +2,10 @@ import { Link } from '@remix-run/react'
 
 import { formatDate, relativeTimeFromDates } from '~/utils/date'
 
-type Post = {
+export type Post = {
   id: string
   owner_id: string
-  parent_id: string
+  parent_id: string | null
   slug: string
   title: string
   status: string
@@ -13,7 +13,7 @@ type Post = {
   created_at: string
   updated_at: string
   published_at: string
-  deleted_at: string
+  deleted_at: string | null
   owner_username: string
   tabcoins: number
   children_deep_count: number

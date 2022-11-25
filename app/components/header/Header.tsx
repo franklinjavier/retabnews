@@ -1,5 +1,4 @@
 import { NavLink, useTransition } from '@remix-run/react'
-import clsx from 'clsx'
 
 import { Container } from '~/components/container'
 
@@ -7,7 +6,7 @@ type HeaderProps = {}
 
 const Loading = () => (
   <svg
-    enable-background="new 0 0 0 0"
+    enableBackground="new 0 0 0 0"
     height="40"
     id="L9"
     version="1.1"
