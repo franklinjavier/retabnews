@@ -1,16 +1,22 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
 
+import global from './components/global.css'
 import styles from './tailwind.css'
+import { Container } from '~/components/container'
+import { Header } from '~/components/header'
 
 import type { LinksFunction, MetaFunction } from '@remix-run/node'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
+  title: 'ReTabNews',
   viewport: 'width=device-width,initial-scale=1',
 })
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: styles },
+  { rel: 'stylesheet', href: global },
+]
 
 export default function App() {
   return (
@@ -20,7 +26,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <Header />
+        <Container>
+          <Outlet />
+        </Container>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

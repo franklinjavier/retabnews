@@ -9,7 +9,7 @@ import type { HeadersFunction, LoaderArgs } from '@remix-run/node'
 export async function loader({ request }: LoaderArgs) {
   const qs = Object.fromEntries(new URL(request.url).searchParams)
   const page = String(qs.page || 1)
-  const data = await contents({ page })
+  const data = await contents({ page, strategy: 'new' })
   return json(data)
 }
 
