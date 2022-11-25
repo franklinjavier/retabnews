@@ -37,7 +37,7 @@ export function Header(props: HeaderProps) {
   const transition = useTransition()
   const isLoading = transition.state !== 'idle'
   return (
-    <header className="bg-gray-800">
+    <header className="bg-gray-800 dark:bg-gray-900">
       <Container>
         <nav className="flex h-16 items-center gap-2 text-gray-100">
           {[
