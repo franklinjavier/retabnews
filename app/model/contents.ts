@@ -14,6 +14,6 @@ export async function contents({ strategy = 'relevant', page }: Contents) {
 
 export function staleWhileRevalidate() {
   return {
-    'Cache-Control': `max-age=1, stale-while-revalidate=59`,
+    'Cache-Control': `public, max-age=60, stale-while-revalidate=59`,
   }
 }
