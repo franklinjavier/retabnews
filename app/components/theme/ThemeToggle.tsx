@@ -9,7 +9,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="ml-auto shrink-0 rounded-lg p-2 text-zinc-500 hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-zinc-400 dark:hover:bg-black/80 dark:focus:ring-gray-700"
+      className="ml-auto shrink-0 rounded-lg p-2 text-zinc-500 hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-zinc-400 dark:hover:bg-black/80 dark:focus:ring-gray-700"
       onClick={toggleTheme}
     >
       <svg
