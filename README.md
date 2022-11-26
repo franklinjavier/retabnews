@@ -1,4 +1,4 @@
-# Remix Starter Template
+# tabnews clone in Remix
 
 - Tailwind
 - Jest
