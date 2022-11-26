@@ -1,4 +1,4 @@
-import type { Post } from './types'
+import type { PostType } from './types'
 
 type Contents = {
   path?: string
@@ -15,18 +15,22 @@ export async function api({ path = '', ...params }: Contents = {}) {
 }
 
 export async function contents(params: Contents = {}) {
-  const result: Post[] = await api(params)
+  const result: PostType[] = await api(params)
   return result
 }
 
 export async function userContents(username: string) {
-  const result: Post[] = await api({ path: `/${username}` })
+  const result: PostType[] = await api({ path: `/${username}` })
   return result
 }
 
-// /contents/gabrielabpedro/00ab00a3-aaa7-4237-a257-d13fc8e17ac0/children
 export async function userContent(username: string, slug: string) {
-  const result: Post = await api({ path: `/${username}/${slug}` })
+  const result: PostType = await api({ path: `/${username}/${slug}` })
+  return result
+}
+
+export async function userComments(username: string, slug: string) {
+  const result: PostType[] = await api({ path: `/${username}/${slug}/children` })
   return result
 }
 

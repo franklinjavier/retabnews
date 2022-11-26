@@ -1,15 +1,15 @@
 import { Link } from '@remix-run/react'
 
 import { PostDetails } from './PostDetails'
-import type { Post } from '~/model/types'
+import type { PostType } from '~/model/types'
 
 type PostsProps = {
-  posts: Post[]
+  posts: PostType[]
 }
 
 export function Posts({ posts }: PostsProps) {
   return (
-    <ol className="list-inside list-disc">
+    <ol className="posts list-inside list-disc">
       {posts.map((post) => (
         <li className="mb-3" key={post.id}>
           <Link className="font-medium" to={`/user/${post.owner_username}/${post.slug}`}>

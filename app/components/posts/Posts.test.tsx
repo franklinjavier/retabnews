@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react'
 
 import { Posts } from './Posts'
-import type { Post } from '~/model/types'
+import type { PostType } from '~/model/types'
 import { renderWithRouter } from '~/test.util'
 
-const mock: Post[] = [
+const mock: PostType[] = [
   {
     id: '111',
     owner_id: '222',

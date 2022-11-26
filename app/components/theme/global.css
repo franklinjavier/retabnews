@@ -8,6 +8,10 @@
     text-decoration-line: underline;
     text-underline-offset: 4px;
   }
+
+  .posts a {
+    @apply visited:text-zinc-400 visited:after:ml-0.5 visited:after:content-['*'];
+  }
 }
 
 @layer components {
@@ -45,10 +49,27 @@
     @apply my-6 border border-b-4 border-zinc-300 dark:border-zinc-700;
   }
 
-  .markdown-body p {
+  .markdown-body blockquote,
+  .markdown-body details,
+  .markdown-body dl,
+  .markdown-body ol,
+  .markdown-body p,
+  .markdown-body pre,
+  .markdown-body table,
+  .markdown-body ul {
     @apply mb-4;
   }
   .markdown-body a {
     @apply text-blue-700 dark:text-blue-400;
+  }
+  .markdown-body blockquote {
+    @apply border-l-4 border-l-zinc-500 px-3 text-zinc-500 dark:border-l-zinc-700;
+  }
+
+  .markdown-body > :last-child {
+    margin-bottom: 0;
+  }
+  .markdown-body > :first-child {
+    margin-top: 0;
   }
 }

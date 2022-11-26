@@ -1,37 +1,45 @@
 import { json } from '@remix-run/node'
-import { useLoaderData, useParams } from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react'
 
 import { Heading } from '~/components/heading'
 import { Markdown } from '~/components/markdown'
-import { userContent } from '~/model/contents'
+import { RecursivePosts } from '~/components/posts/RecursivePosts'
+import { userComments, userContent } from '~/model/contents'
 import { markdownToHtml } from '~/utils/markdown.server'
 
 import type { LoaderArgs } from '@remix-run/node'
 
-export async function loader({ request, params }: LoaderArgs) {
+export async function loader({ params }: LoaderArgs) {
   const username = params.username
   const slug = params.slug
   if (!username || !slug) throw json('Not Found', { status: 404 })
 
-  const data = await userContent(username, slug)
+  const [post, children] = await Promise.all([userContent(username, slug), userComments(username, slug)])
 
-  if (data.body) {
-    data.body = await markdownToHtml(data.body)
+  if (post.body) {
+    post.body = await markdownToHtml(post.body)
   }
 
-  return json(data)
+  const posts = await Promise.all(
+    children.map(async function (item) {
+      item.body = await markdownToHtml(item.body ?? '')
+      return item
+    }),
+  )
+
+  return json({ post, posts })
 }
 
 export default function Username() {
-  const data = useLoaderData<typeof loader>()
-  const params = useParams()
+  const { post, posts } = useLoaderData<typeof loader>()
 
-  if (!data) return null
+  if (!post) return null
 
   return (
-    <div>
-      <Heading className="mb-4 text-3xl font-medium">{data.title}</Heading>
-      <Markdown body={data.body ?? ''} />
-    </div>
+    <>
+      <Heading className="mb-4 text-3xl font-medium">{post.title}</Heading>
+      <Markdown body={post.body ?? ''} />
+      <RecursivePosts level={0} posts={posts} />
+    </>
   )
 }

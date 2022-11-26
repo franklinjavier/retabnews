@@ -1,5 +1,5 @@
-export type Post = {
-  children?: [{}]
+export type PostType = {
+  children?: PostType[]
   body?: string
   children_deep_count: number
   created_at: string

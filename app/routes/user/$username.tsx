@@ -4,7 +4,7 @@ import { Link, useLoaderData, useParams } from '@remix-run/react'
 import { Heading } from '~/components/heading'
 import { PostDetails } from '~/components/posts/PostDetails'
 import { userContents } from '~/model/contents'
-import type { Post } from '~/model/types'
+import type { PostType } from '~/model/types'
 
 import type { LoaderArgs } from '@remix-run/node'
 
@@ -20,14 +20,12 @@ export async function loader({ request, params }: LoaderArgs) {
 export default function Username() {
   const data = useLoaderData<typeof loader>()
   const params = useParams()
-  console.log(params)
-  console.log(data)
 
   return (
-    <div>
-      <Heading>{params.username}</Heading>
+    <>
+      <Heading className="mb-4">{params.username}</Heading>
       <ol className="list-inside list-disc">
-        {data?.map((item: Post) => (
+        {data?.map((item: PostType) => (
           <li className="mb-3" key={item.id}>
             <Link className="font-medium" to={`/user/${item.owner_username}/${item.slug}`}>
               {item.title || item.body}
@@ -36,6 +34,6 @@ export default function Username() {
           </li>
         ))}
       </ol>
-    </div>
+    </>
   )
 }

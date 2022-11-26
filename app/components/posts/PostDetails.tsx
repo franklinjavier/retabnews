@@ -1,11 +1,24 @@
 import { Link } from '@remix-run/react'
 
-import type { Post } from '~/model/types'
+import type { PostType } from '~/model/types'
 import { formatDate, relativeTimeFromDates } from '~/utils/date'
 
 type PostDetailsProps = {
-  post: Post
+  post: PostType
 }
+
+export function PostDate({ post }: PostDetailsProps) {
+  return (
+    <Link
+      className="text-xs text-zinc-500"
+      title={formatDate(new Date(post.created_at))}
+      to={`/user/${post.owner_username}/${post.slug}`}
+    >
+      {relativeTimeFromDates(new Date(post.created_at))}
+    </Link>
+  )
+}
+
 export function PostDetails({ post }: PostDetailsProps) {
   return (
     <div className="ml-5 text-xs text-zinc-500">
@@ -16,9 +29,7 @@ export function PostDetails({ post }: PostDetailsProps) {
         {post.owner_username}
       </Link>{' '}
       {' · '}
-      <span title={formatDate(new Date(post.created_at))}>
-        {relativeTimeFromDates(new Date(post.created_at))}
-      </span>
+      <PostDate post={post} />
     </div>
   )
 }
