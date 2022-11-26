@@ -17,16 +17,8 @@ export async function loader({ request }: LoaderArgs) {
   })
 }
 
-// export let headers: HeadersFunction = () => {
-//   return staleWhileRevalidate()
-// }
-
 export default function Index() {
   const posts = useLoaderData<typeof loader>()
 
-  return (
-    <main className="my-5">
-      <Posts posts={posts} />
-    </main>
-  )
+  return <Posts posts={posts} />
 }

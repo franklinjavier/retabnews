@@ -1,7 +1,6 @@
 import { json } from '@remix-run/node'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
 
-import global from './components/global.css'
 import styles from './tailwind.css'
 import { getThemeSession } from './utils/theme.server'
 import { Container } from '~/components/container'
@@ -17,10 +16,7 @@ export const meta: MetaFunction = () => ({
   viewport: 'width=device-width,initial-scale=1',
 })
 
-export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: styles },
-  { rel: 'stylesheet', href: global },
-]
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
 
 export async function loader({ request }: LoaderArgs) {
   const themeSession = await getThemeSession(request)
@@ -77,9 +73,11 @@ export default function App() {
     <ThemeProvider specifiedTheme={data.theme}>
       <Document>
         <Header />
-        <Container>
-          <Outlet />
-        </Container>
+        <main className="my-5">
+          <Container>
+            <Outlet />
+          </Container>
+        </main>
       </Document>
     </ThemeProvider>
   )

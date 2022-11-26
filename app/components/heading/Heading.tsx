@@ -1,6 +1,9 @@
+import clsx from 'clsx'
+
 type HeadingProps = {
   children: React.ReactNode
+  className?: string
 }
-export function Heading(props: HeadingProps) {
-  return <h1 className="text-3xl" {...props} />
+export function Heading({ className, ...props }: HeadingProps) {
+  return <h1 className={clsx('text-3xl', className)} {...props} />
 }

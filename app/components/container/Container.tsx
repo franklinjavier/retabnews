@@ -5,5 +5,5 @@ type HeadingProps = {
   className?: string
 }
 export function Container({ className, ...props }: HeadingProps) {
-  return <div className={clsx('m-auto w-full max-w-5xl px-6 md:px-0', className)} {...props} />
+  return <div className={clsx('m-auto w-full max-w-5xl px-6', className)} {...props} />
 }

@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .active,
+  a:hover {
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@layer components {
+  .markdown-body strong,
+  .markdown-body b {
+    @apply font-semibold;
+  }
+  .markdown-body h2 {
+    @apply mt-6 mb-4 border-b border-b-zinc-200 pb-3 text-2xl dark:border-b-zinc-600;
+  }
+  .markdown-body h3 {
+    @apply mt-6 mb-4 text-xl font-medium dark:border-b-zinc-600;
+  }
+
+  .markdown-body ul {
+    @apply ml-8 list-disc;
+  }
+
+  .markdown-body ul > li + li {
+    @apply mb-2;
+  }
+
+  .markdown-body table {
+    @apply w-full border border-zinc-300 dark:bg-transparent;
+  }
+  .markdown-body th,
+  .markdown-body td {
+    @apply border border-zinc-300 px-2 py-3 dark:border-zinc-700;
+  }
+  .markdown-body tr {
+    @apply odd:bg-white even:bg-zinc-50 dark:odd:bg-zinc-800 dark:even:bg-zinc-700/60;
+  }
+
+  .markdown-body hr {
+    @apply my-6 border border-b-4 border-zinc-300 dark:border-zinc-700;
+  }
+
+  .markdown-body p {
+    @apply mb-4;
+  }
+  .markdown-body a {
+    @apply text-blue-700 dark:text-blue-400;
+  }
+}

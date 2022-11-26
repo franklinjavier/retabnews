@@ -1,9 +1,8 @@
 import { screen } from '@testing-library/react'
 
 import { Posts } from './Posts'
+import type { Post } from '~/model/types'
 import { renderWithRouter } from '~/test.util'
-
-import type { Post } from './Posts'
 
 const mock: Post[] = [
   {

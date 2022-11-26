@@ -38,9 +38,9 @@ export function Header(props: HeaderProps) {
   const transition = useTransition()
   const isLoading = transition.state !== 'idle'
   return (
-    <header className="supports-backdrop-blur:bg-zinc-800 sticky top-0 z-40 w-full flex-none bg-white/75 backdrop-blur transition-colors duration-500 dark:border-none dark:bg-[#1b1b1b]/75 lg:z-50 lg:border-b">
+    <header className="supports-backdrop-blur:bg-zinc-800 sticky top-0 z-40 w-full flex-none border-b bg-white/75 backdrop-blur transition-colors duration-500 dark:border-none dark:bg-[#1b1b1b]/75 lg:z-50">
       <Container className="flex items-center">
-        <nav className="flex h-16 items-center gap-2 text-zinc-800 dark:text-zinc-100">
+        <nav className="flex h-16 items-center gap-3 text-zinc-800 dark:text-zinc-100">
           {[
             { url: '.', text: 'Relevantes' },
             { url: 'recentes', text: 'Recentes' },
