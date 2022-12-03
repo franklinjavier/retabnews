@@ -1,6 +1,11 @@
 /** @type {import('@jest/types').Config.InitialOptions} */
 
 module.exports = {
+  globals: {
+    'ts-jest': {
+      isolatedModules: true,
+    },
+  },
   collectCoverage: true,
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['<rootDir>/app/**/*.test.[jt]s?(x)'],

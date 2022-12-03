@@ -21,7 +21,7 @@
     "type-check": "tsc",
     "updatedeps": "yarn --latest upgrade-interactive",
     "prepare": "husky install",
-    "test": "jest --forceExit --no-cache",
+    "test": "jest --forceExit --no-cache --maxWorkers=25%",
     "test:dev": "jest --watchAll"
   },
   "dependencies": {
