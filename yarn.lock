@@ -1470,10 +1470,10 @@
     ws "^7.4.5"
     xdm "^2.0.0"
 
-"@remix-run/eslint-config@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@remix-run/eslint-config/-/eslint-config-1.8.0.tgz#6285a586a0bb455c18c9fd31bf220d84576d0f0f"
-  integrity sha512-jF2YtpYGnoCE2/VXo2xQvgu7kzPqGbtPGkm+t22/v/pdf+hp/dyICNv3XNKPqsVa8vEDBcK9RtP5etV9cSsSyQ==
+"@remix-run/eslint-config@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/eslint-config/-/eslint-config-1.9.0.tgz#9a7e35c61f703165657dd3126bc1cb2424989fc6"
+  integrity sha512-SPEY+FqvYrlpqYpvPPKd/2dlKzd9Vlxa2HkvKqIHtaiBFUGX9GWnKRro6b5KQ6IU0K5wupCJXG4/bw1CYd8pFg==
   dependencies:
     "@babel/core" "^7.19.1"
     "@babel/eslint-parser" "^7.19.1"
